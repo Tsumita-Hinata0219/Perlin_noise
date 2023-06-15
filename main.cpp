@@ -41,10 +41,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			Rect1[y][x].size = { 5.0f, 5.0f };
 			Rect1[y][x].angle = 0.0f;
 			
-			// 透明度をnoise()関数で求める
+			// 透明度をnoise()関数で求める                       ↓　起伏  
 			Rect1[y][x].alpha = noise(Divide(Rect1[y][x].pos, 180.0f));
-			// noise()求めた透明度でcolorを決める
-			Rect1[y][x].color = SetColor(colorV, int(Rect1[y][x].alpha * 150));
+			// noise()求めた透明度でcolorを決める                           ↓ 戻り値をｎをかける
+			Rect1[y][x].color = SetColor(colorV, int(Rect1[y][x].alpha * 100));
 		}
 	}
 	
@@ -79,12 +79,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			0, 0,
 			ScreenWidth, ScreenHeight,
 			0.0f, BLACK, kFillModeSolid);
-
-	/*	Novice::DrawBox(
-			10, 10,
-			100, 100,
-			0.0f, color, kFillModeSolid);*/
-
 
 		for (int y = 0; y < maxRectY; y++) {
 			for (int x = 0; x < maxRectX; x++)
